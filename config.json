@@ -1,0 +1,8 @@
+{
+    "id": 9,
+    "link": "https://forms.gle/KWfM9Ga63nQzc4qd8",
+    "browser": "google-chrome",
+    "max_delay": 3,
+    "num_of_scale_qns": 10,
+    "score_list": [1,2,3,4]
+}
