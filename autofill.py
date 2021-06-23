@@ -25,6 +25,7 @@ with open('./config.json') as infile:
 ENTRY = config['id'] #name number 9 is Muhammad Adib Farrasy
 NUM_OF_SCALE_QNS = config['num_of_scale_qns'] #10 bullet points in GA survey
 SCORE_LIST = config['score_list']
+MESSAGE = config['message']
 
 # 3. Fill out the form by simulating keyboard presses, slightly randomize the answer
 # INITIATE
@@ -73,7 +74,7 @@ for i in range(12):
 
 # FILL OUT THE LAST QUESTION
 time.sleep(0.5)
-keyboard.write("good work")
+keyboard.write(MESSAGE)
 
 # 4. Submit the form manually
 
