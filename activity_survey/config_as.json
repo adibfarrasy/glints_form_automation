@@ -4,5 +4,18 @@
     "browser": "google-chrome",
     "num_of_scale_qns": 3,
     "score_list": [0, 1, 2, 3, 4],
-    "message": "good work"
+    "message": "good work",
+    "activity": {
+        "0": "All Hands",
+        "1": "Career Next Steps",
+        "2": "English Express",
+        "3": "P2P Career Support",
+        "4": "Friday Social",
+        "5": "Office Hour",
+        "6": "Computer Science Fundamental Class",
+        "7": "Alumni Office Hour",
+        "8": "Alumni Gathering",
+        "9": "Alumni Talkshow",
+        "10": "Saturday Tech Workshop"
+    }
 }

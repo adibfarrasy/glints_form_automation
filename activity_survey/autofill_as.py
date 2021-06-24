@@ -21,6 +21,7 @@ NAME = config['name']
 NUM_OF_SCALE_QNS = config['num_of_scale_qns'] #3 bullet points in GA activity survey
 SCORE_LIST = config['score_list']
 MESSAGE = config['message']
+ACTIVITY = config['activity']
 
 # 3. Fill out the form by simulating keyboard presses, slightly randomize the answer
 # INITIATE
@@ -62,7 +63,7 @@ time.sleep(0.3)
 
 # FILL OUT NAME
 keyboard.write(NAME)
-time.sleep(0.1)
+time.sleep(1)
 keyboard.press_and_release('enter')
 time.sleep(0.5)
 keyboard.press_and_release('tab')
@@ -70,8 +71,10 @@ time.sleep(0.5)
 
 # FILL OUT ACTIVITY
 if activity == 0:
-    keyboard.press_and_release('tab')
+    keyboard.press_and_release('down')
     time.sleep(0.1)
+    keyboard.press_and_release('up')
+    time.sleep(0.3)
 else:
     for i in range(activity):
         keyboard.press_and_release('down')
@@ -110,8 +113,8 @@ keyboard.write(MESSAGE)
 # 5. Once program is done, write a log for backtracing
 with open('log.txt', 'a') as f:
     now = datetime.now()
-    date_str = now.strftime("%Y/%m/%d %H:%M:%S")
+    date_str = now.strftime("%Y/%m/%d %H:%M:%S ")
     f.write('\n')
-    json.dump(date_str, f)
+    json.dump(date_str + ' - ' + ACTIVITY[str(activity)], f)
 
 print("Program exited.")
