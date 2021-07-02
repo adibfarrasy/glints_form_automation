@@ -44,6 +44,14 @@ for i in range(ENTRY):
 keyboard.press_and_release('enter')
 time.sleep(0.5)
 
+# CHOOSE FACILITATOR
+keyboard.press_and_release('tab')
+time.sleep(0.03)
+keyboard.press_and_release('space')
+time.sleep(0.03)
+keyboard.press_and_release('tab')
+time.sleep(0.03)
+
 # FILL OUT DATE
 today = date.today()
 keyboard.press_and_release('tab')
