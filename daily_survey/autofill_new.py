@@ -12,17 +12,12 @@
 
 
 import time
-from datetime import date, datetime
+from datetime import datetime
 import keyboard
 import json
 from random import randint
-import webbrowser
 
-LINK = "https://forms.gle/heRJKBHjAraDr1Qt6"
-BROWSER = 'google-chrome'
 
-# 1. Open browser, then open the form link
-webbrowser.get(BROWSER).open(LINK)
 ENTRY = 30 #name number 30 is Muhammad Adib Farrasy
 MESSAGE = 'keep up the good work'
 
