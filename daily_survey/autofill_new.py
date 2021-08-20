@@ -19,7 +19,6 @@ from random import randint
 
 
 ENTRY = 30 #name number 30 is Muhammad Adib Farrasy
-MESSAGE = 'keep up the good work'
 
 def write_nonsense(input):
     keyboard.press_and_release('tab')
