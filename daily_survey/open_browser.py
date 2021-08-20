@@ -1,29 +1,19 @@
 # BUSINESS RULES
-# 
-# 1. Open browser, then open the form link
-# 2. Fill out the form by simulating keyboard presses, slightly randomize the answer
-# 3. Submit the form
-# 4. Once submitted, write a log for backtracing
+# 1. Choose random time between 1600 to 1700 to fill out the form
+# 2. Open browser, then open the form link
+# 3. Fill out the form by simulating keyboard presses, slightly randomize the answer
+# 4. Submit the form manually
+# 5. Once program is done, write a log for backtracing
 
 # TESTING
 # Create a test form : DONE
-# Developer test for 3 days
-# Use on GA form for 3 days
-# Ask GA (Alvin) if it works
+# Developer test : DONE
+# Use on GA form : DONE
 
-import time
-from datetime import date, datetime
 import webbrowser
-import keyboard
-import json
-from random import seed, random, choice
 
-# INITIAL CONFIGURATION
-with open('./config.json') as infile:
-    config = json.load(infile)
-
-LINK = config['link'] #sim: https://forms.gle/CD8ioQ7iu9MRUUtH9, real: https://forms.gle/KWfM9Ga63nQzc4qd8
-BROWSER = config['browser'] #firefox, google-chrome
+LINK = "https://forms.gle/heRJKBHjAraDr1Qt6"
+BROWSER = 'google-chrome'
 
 # 1. Open browser, then open the form link
 webbrowser.get(BROWSER).open(LINK)

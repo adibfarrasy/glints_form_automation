@@ -13,19 +13,30 @@
 
 import time
 from datetime import date, datetime
-import webbrowser
 import keyboard
 import json
-from random import seed, random, choice
+from random import randint
+import webbrowser
 
-# INITIAL CONFIGURATION
-with open('./config.json') as infile:
-    config = json.load(infile)
+LINK = "https://forms.gle/heRJKBHjAraDr1Qt6"
+BROWSER = 'google-chrome'
 
-ENTRY = config['id'] #name number 9 is Muhammad Adib Farrasy
-NUM_OF_SCALE_QNS = config['num_of_scale_qns'] #10 bullet points in GA survey
-SCORE_LIST = config['score_list']
-MESSAGE = config['message']
+# 1. Open browser, then open the form link
+webbrowser.get(BROWSER).open(LINK)
+ENTRY = 30 #name number 30 is Muhammad Adib Farrasy
+MESSAGE = 'keep up the good work'
+
+def write_nonsense(input):
+    keyboard.press_and_release('tab')
+    time.sleep(0.03)
+    keyboard.write(input)
+    time.sleep(0.03)
+
+def linear_scale_fill():
+    keyboard.press_and_release('tab') 
+    for i in range(randint(2,4)):
+        keyboard.press_and_release('right')
+        time.sleep(0.1)
 
 # 3. Fill out the form by simulating keyboard presses, slightly randomize the answer
 # INITIATE
@@ -44,45 +55,47 @@ for i in range(ENTRY):
 keyboard.press_and_release('enter')
 time.sleep(0.5)
 
-# CHOOSE FACILITATOR
+# CHOOSE FINAL PROJECT TEAM
 keyboard.press_and_release('tab')
 time.sleep(0.03)
 keyboard.press_and_release('space')
 time.sleep(0.03)
+
+# CHOOSE STACK CLASS
 keyboard.press_and_release('tab')
 time.sleep(0.03)
-
-# FILL OUT DATE
-today = date.today()
-keyboard.press_and_release('tab')
+keyboard.press_and_release('down')
 time.sleep(0.03)
-keyboard.press_and_release('space')
-time.sleep(0.03)
-keyboard.press_and_release('tab')
-time.sleep(0.03)
-keyboard.press_and_release('enter')
-time.sleep(0.5)
-keyboard.press_and_release('tab')
-time.sleep(0.5)
-keyboard.press_and_release('tab')
 
-# FILL OUT THE LINEAR SCALE QNS
-SCORE_LIST = SCORE_LIST[1:3] # ONLY GIVE GOOD REVIEW.
-for i in range(NUM_OF_SCALE_QNS):
-    keyboard.press_and_release('tab') 
-    for i in range(choice(SCORE_LIST)-1):
-        keyboard.press_and_release('left')
-        time.sleep(0.1)
+# WRITE NONSENSE PT. 1
+write_nonsense('to live a better life')
 
-# FILL OUT THE BULLET POINT QN
-keyboard.press_and_release('tab, space')
-for i in range(12):
-    keyboard.press_and_release('tab')
-    time.sleep(0.1)
+# WRITE NONSENSE PT. 2
+write_nonsense('nothing. all good')
 
-# FILL OUT THE LAST QUESTION
-time.sleep(0.5)
-keyboard.write(MESSAGE)
+# WRITE NONSENSE PT. 3
+write_nonsense('nothing. all good')
+
+# FILL OUT THE LINEAR SCALE QN PT 2
+linear_scale_fill()
+
+# WRITE NONSENSE PT. 4
+write_nonsense('approx. 3 hours')
+
+# FILL OUT THE LINEAR SCALE QN PT 2
+linear_scale_fill()
+
+# FILL OUT THE LINEAR SCALE QN PT 3
+linear_scale_fill()
+
+# FILL OUT THE LINEAR SCALE QN PT 4
+linear_scale_fill()
+
+# FILL OUT THE LINEAR SCALE QN PT 5
+linear_scale_fill()
+
+# WRITE NONSENSE PT. 4
+write_nonsense('keep doing good work')
 
 # 4. Submit the form manually
 
@@ -92,5 +105,6 @@ with open('log.txt', 'a') as f:
     date_str = now.strftime("%Y/%m/%d %H:%M:%S")
     f.write('\n')
     json.dump(date_str, f)
+
 
 print("Program exited.")
